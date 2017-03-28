@@ -19,23 +19,24 @@ $ npm install element-drag --save
  <body>
 	 <div id="box" class='dragBox'></div>
    <script>
-      // 启用拖动功能
-      var box = document.getElementById('box');
-   		Drag.enable(box,{
-			outScreen:false,	
-			autoCenter:true,
-			autoCenterWhenResize:true,
-			dragStart:function () {
-				console.log('开始拖动')
-			},
-			dragging:function(){
-				console.log('正在拖动')
-			},
-			dragEnd:function(){
-				console.log('拖动结束')
-			}
-		})
-   </script>
+	// 启用拖动功能
+	var box = document.getElementById('box');
+	Drag.enable(box,{
+		outScreen:false,	
+		autoCenter:true,
+		autoCenterWhenResize:true,
+		dragStart:function () {
+			console.log('开始拖动')
+		},
+		dragging:function(){
+			console.log('正在拖动')
+		},
+		dragEnd:function(){
+			console.log('拖动结束')
+		}
+	})
+	Drag.disable(box)	//关闭拖拽功能
+   </script>
  </body>
 </html>
 ```
