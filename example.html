@@ -13,7 +13,7 @@
 		.box-content{height:250px;}
 		#box2{width:300px;height:300px;border:1px solid red;}
 	</style>
-	<script src='drag3.js'></script>
+	<script src='drag.js'></script>
 </head>
 <body>
 	<div id="box" class='dragBox'>
@@ -40,7 +40,15 @@
 				console.log('拖动结束')
 			}
 		})
-		Drag.enable(box2,{outScreen:true,dragging:function(){console.log('check now')}})
+		Drag.enable(box2,{
+			outScreen:true,
+			dragging:function(){
+				console.log('check now')
+			},
+			dragEnd:function(){
+				console.log('nononono')
+			}
+		})
 		//Drag.disable(box2)
 	</script>
 </body>

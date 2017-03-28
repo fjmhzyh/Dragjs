@@ -31,6 +31,7 @@
 
 		// 必要参数
 		this.args = {
+			handlers:{},
 			draggable: false,
 			diffX: 0,
 			diffY: 0,
@@ -39,16 +40,15 @@
 		}
 	}
 	Dragdrop.prototype ={
-		handlers:{},
 		on:function(type,handler){
-			if(typeof this.handlers[type] == 'undefined'){
-				this.handlers[type] = [];
+			if(typeof this.args.handlers[type] == 'undefined'){
+				this.args.handlers[type] = [];
 			}
-			this.handlers[type].push(handler)
+			this.args.handlers[type].push(handler)
 		},
 		fire:function(type,data){
-			if(this.handlers[type] instanceof Array){
-				var handlers = this.handlers[type];
+			if(this.args.handlers[type] instanceof Array){
+				var handlers = this.args.handlers[type];
 				for(var i=0,len = handlers.length;i<len;i++){
 					handlers[i](data);
 				}
@@ -81,7 +81,9 @@
 				} 
 				break;
 			case 'mouseup':
-				d.fire('dragEnd') 
+				if(el && o.draggable && el.className.indexOf('the-draggable-box') > -1){
+					d.fire('dragEnd') 
+				}
 				o.draggable = false;
 				break;
 		}
