@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>可以拖动的div2</title>
+	<style>
+		body{
+			margin:0;
+			padding:0;
+		}
+		#box{position:absolute;width:300px;height:300px;border:1px solid #c9c9c9;border-radius:5px;box-shadow:2px 2px 10px #ccc;}
+		#box-title{height:50px;background:#d5d5d5;cursor:move;}
+		.box-content{height:250px;}
+		#box2{width:300px;height:300px;border:1px solid red;}
+	</style>
+	<script src='drag3.js'></script>
+</head>
+<body>
+	<div id="box" class='dragBox'>
+		<div id="box-title" class="draggable"></div>
+		<div class="box-content"></div>
+	</div>
+	<div id="box2">
+		
+	</div>
+	<script>
+		var box = document.getElementById('box');
+		var box2 = document.getElementById('box2');
+		Drag.enable(box,{
+			outScreen:false,
+			autoCenter:true,
+			autoCenterWhenResize:true,
+			dragStart:function () {
+				console.log('开始拖动')
+			},
+			dragging:function(){
+				console.log('正在拖动')
+			},
+			dragEnd:function(){
+				console.log('拖动结束')
+			}
+		})
+		Drag.enable(box2,{outScreen:true,dragging:function(){console.log('check now')}})
+		//Drag.disable(box2)
+	</script>
+</body>
+</html>
