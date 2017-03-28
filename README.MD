@@ -2,7 +2,7 @@ a light js library that makes your element draggable and other useful functions 
 ------
 ## Installation
 ```bash
-$ npm install Dragjs
+$ npm install element-drag --save
 ```
 
 ## How To Use
