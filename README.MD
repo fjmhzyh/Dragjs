@@ -1,4 +1,4 @@
-a light js library that makes your element draggable
+a light js library that makes your elements draggable
 ------
 ## Installation
 ```bash
@@ -13,14 +13,26 @@ $ npm install element-drag --save
   <meta charset="UTF-8">
   <script src='drag.js'></script>
   <style>
-  #box{position:absolute;width:300px;height:300px;border:1px solid #c9c9c9;box-shadow:2px 2px 10px #ccc;}
+	  .dragBox{
+	  	width:200px;
+	  	height:200px;
+	  	border:1px solid #c9c9c9;
+	  	box-shadow:2px 2px 10px #ccc;
+	  }
   </style>
 </head>
  <body>
-	 <div id="box" class='dragBox'></div>
+	 <div id="box1" class='dragBox'></div>
+	 <div id="box2" class='dragBox'></div>
+	 <div id="box3" class='dragBox'></div>
    <script>
-	var box = document.getElementById('box');
-	Drag.enable(box)  // box is draggable now!
+	var box1 = document.getElementById('box1');
+	var box2 = document.getElementById('box2');
+	var box3 = document.getElementById('box3');
+	Drag.enable(box1)  
+	Drag.enable(box2) 
+	Drag.enable(box3)   
+	// box is draggable now!
    </script>
  </body>
 </html>
@@ -31,6 +43,7 @@ $ npm install element-drag --save
 Drag.enable(element,options）	// enable 
 Drag.disable(element）	// disable
 options ={
+	handle:dom,				   // 拖动的把手,接受一个DOM元素
 	outScreen: false,	       // 是否可以拖出屏幕外
 	autoCenter: false,	       // 元素自动居中
 	autoCenterWhenResize: false,   // 屏幕缩放时,元素自动居中
